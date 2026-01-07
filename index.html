@@ -9,15 +9,50 @@
 
 <a href="https://outlook.office.com/mail/">Open Outlook app</a>
 
-<a href="intent://mail/#Intent;
-scheme=https;
-package=com.microsoft.office.outlook;
-end;"
-onclick="setTimeout(function () {
-    window.location.href='https://outlook.office.com/mail/';
-}, 700);">
-Open Outlook
-</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Outlook</title>
+
+  <script>
+    function openOutlookMobile() {
+      // ANDROID: try app using Intent
+      if (/Android/i.test(navigator.userAgent)) {
+        window.location.href =
+          "intent://mail/#Intent;scheme=https;package=com.microsoft.office.outlook;end;";
+
+        setTimeout(function () {
+          window.location.href = "https://outlook.office.com/mail/";
+        }, 700);
+      }
+
+      // iOS: try app using scheme, then fallback
+      else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = "ms-outlook://";
+
+        setTimeout(function () {
+          window.location.href = "https://outlook.office.com/mail/";
+        }, 700);
+      }
+
+      // Other devices → web
+      else {
+        window.location.href = "https://outlook.office.com/mail/";
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+<button onclick="openOutlookMobile()">
+  Open Outlook
+</button>
+
+</body>
+</html>
+
 
 </body>
 </html>
