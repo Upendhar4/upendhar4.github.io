@@ -1,58 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Outlook Link</title>
-</head>
-<body>
-
-<h3>Open Outlook</h3>
-
-<a href="https://outlook.office.com/mail/">Open Outlook app</a>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Outlook</title>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Open Outlook</title>
 
   <script>
     function openOutlook() {
-
-      // Android Intent with browser fallback
+      // Android Intent with browser fallback (NO Play Store)
       window.location.href =
         "intent://mail/#Intent;" +
         "scheme=https;" +
         "package=com.microsoft.office.outlook;" +
-        "S.browser_fallback_url=https://outlook.office.com/mail/;" +
+        "S.browser_fallback_url=https%3A%2F%2Foutlook.office.com%2Fmail%2F;" +
         "end;";
     }
   </script>
 </head>
-
 <body>
 
-<button onclick="openOutlook()">Open Outlook</button>
-
-</body>
-</html>
-
-</head>
-
-<body>
-
-<button onclick="openOutlookMobile()">
-  Open Outlook
-</button>
-
-</body>
-</html>
-
+  <button onclick="openOutlook()"
+          style="padding:12px 20px;font-size:16px;">
+    Open Outlook
+  </button>
 
 </body>
 </html>
